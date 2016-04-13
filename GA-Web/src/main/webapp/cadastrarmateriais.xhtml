@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Cadastro de Materiais de Aula</title>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <script src="js/jquery.js" type="text/javascript"></script>
+        <script src="js/bootstrap.js" type="text/javascript"></script>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <script src="js/drive.js" type="text/javascript"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
+    </h:head>
+    <h:body>
+        <div class="navbar navbar-static-top bg-success">
+            <h1>Gerenciamento Acadêmico IFPB</h1>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <h:form style="float: right">
+                    <h:commandLink class="btn btn-default" value="Voltar" action="professorindex.xhtml"/>
+                </h:form>
+            </div><!-- /.navbar-collapse -->
+        </div>          
+        <div class="container">
+            <div class="row">
+                <h3 class="">Cadastro de Materiais de Aula</h3>
+                <br/>
+                <br/>
+                <br/>
+                <div class="col-xs-6 col-md-6">                    
+                    <h4>Novo Material</h4>                        
+                    <button class="btn btn-default" onclick="onApiLoad()">Upload Arquivo</button>
+                    <h:form id="form">
+                        <hr/>
+                        <div class="form-inline form-group">
+                            <label>Titulo</label>   
+                            <h:inputText id="titulo" value="#{gerenciadorProfessorServicos.material.titulo}"/>
+                        </div>                        
+                        <div class="form-inline form-group">
+                            <label>Descrição</label>   
+                            <h:inputText id="descricao" value="#{gerenciadorProfessorServicos.material.descricao}"/>
+                        </div>                        
+                        <div class="form-inline form-group">
+                            <label>Link para o material</label>                                                           
+                            <h:inputText id="link" required="true" value="#{gerenciadorProfessorServicos.material.link}"></h:inputText>
+                        </div>
+                        <div class="form-group-sm">                            
+                            <label>Selecione uma turma</label>
+                            <h:selectOneListbox size="1" id="turmaSelecionada" value="#{gerenciadorProfessorServicos.turma}"  class="form-control">
+                                <f:converter converterId="turmaConverter"/>
+                                <f:selectItems value="#{gerenciadorProfessorServicos.professor.turmas}"
+                                               var="n"
+                                               itemValue="#{n.identificacao}"
+                                               itemLabel="#{n.identificacao}"
+                                               itemLabelEscaped="true"
+                                               />
+                            </h:selectOneListbox>                            
+                        </div>                   
+                        <br/>
+                        <h:commandButton value="Cadastrar" action="#{gerenciadorProfessorServicos.cadastrarMaterial()}"/>
+                    </h:form>
+                </div>
+                <div class="col-xs-6 col-md-6">
+                    <h:form>
+                        <c:forEach items="#{gerenciadorProfessorServicos.professor.turmas}" var="turmaP" >
+                            <h4>Todos os materiais cadastrados para #{turmaP.identificacao}</h4>
+                            <h:dataTable  class="table table-striped" value="#{turmaP.materiais}" var="material">
+                                    <h:column id="column1">
+                                        <f:facet name="header">
+                                            <h:outputText value="Titulo" />                   
+                                        </f:facet>
+                                        <span>#{material.titulo}</span>
+                                    </h:column>
+                                    <h:column id="column2">
+                                        <f:facet name="header">
+                                            <h:outputText value="Descrição" />                   
+                                        </f:facet>
+                                        <span>#{material.descricao}</span>
+                                    </h:column>
+                                    <h:column id="column3">
+                                        <f:facet name="header">
+                                            <h:outputText value="Link" />                   
+                                        </f:facet>
+                                        <span><a href="#{material.link}">#{material.link}</a></span>
+                                    </h:column>
+                                    <h:column id="column4">
+                                        <f:facet name="header">
+                                            <h:outputText value="Adicionado em" />                   
+                                        </f:facet>
+                                        <span>#{material.data}</span>
+                                    </h:column>
+                                </h:dataTable>
+                        </c:forEach>                        
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </h:body>   
+    <script type="text/javascript" src="https://apis.google.com/js/api.js"></script>    
+</html>
+

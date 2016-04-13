@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Horario #{GerenciadorCurso.cursoSelecionado}</title>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <script src="js/jquery.js" type="text/javascript"></script>
+        <script src="js/bootstrap.js" type="text/javascript"></script>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
+    </h:head>
+    <h:body>
+        <f:view>
+            <div class="container" id="conteudoProfessores">
+                <a href="cursos.xhtml">Voltar para anterior</a>
+                <h3 style="position: relative; text-align: center">Horário de #{GerenciadorCurso.cursoSelecionado.descricao} - #{GerenciadorCurso.semestre}º Semestre </h3>
+                <p>
+                    Nome: #{GerenciadorCurso.cursoSelecionado.descricao} - #{GerenciadorCurso.cursoSelecionado.abreviacao}<br></br>                    
+                    Unidade: #{GerenciadorCurso.cursoSelecionado.unidade}<br></br>                    
+                </p>
+
+                <h4>                                        
+                    <h:form class="text-center">
+                        Semestre:
+                        <c:forEach begin="1" end="#{GerenciadorCurso.totalSemestres}" var="semestre">                            
+                            <h:commandLink action="#{GerenciadorCurso.setSemestre(semestre)}">#{semestre}</h:commandLink>&nbsp;
+                        </c:forEach>
+                    </h:form>
+                </h4>
+                <h:form>
+                    <h:dataTable  class="table table-striped text-center" value="#{gerenciadorProfessor.horariosEmbranco}" var="h" border="1">
+                        <h:column id="column1">
+                            <f:facet name="header">
+                                <h:outputText value="Horário" />                   
+                            </f:facet>
+                            <h:outputText value="#{h.toString()}"/>
+                        </h:column>
+                        <h:column id="column2">
+                            <f:facet name="header">
+                                <h:outputText value="Segunda feira" />                   
+                            </f:facet>
+                            <span class="text-uppercase badge">#{GerenciadorCurso.getAula("seg",h)}</span>
+                        </h:column>
+                        <h:column id="column3">
+                            <f:facet name="header">
+                                <h:outputText value="Terça feira" />                   
+                            </f:facet>
+                            <span class="text-uppercase badge">#{GerenciadorCurso.getAula("ter",h)}</span>
+                        </h:column>
+                        <h:column id="column4">
+                            <f:facet name="header">
+                                <h:outputText value="Quarta feira" />                   
+                            </f:facet>
+                            <span class="text-uppercase badge">#{GerenciadorCurso.getAula("qua",h)}</span>
+                        </h:column>
+                        <h:column id="column5">
+                            <f:facet name="header">
+                                <h:outputText value="Quinta feira" />                   
+                            </f:facet>
+                            <span class="text-uppercase badge">#{GerenciadorCurso.getAula("qui",h)}</span>
+                        </h:column>
+                        <h:column id="column6">
+                            <f:facet name="header">
+                                <h:outputText value="Sexta feira" />                   
+                            </f:facet>
+                            <span class="text-uppercase badge">#{GerenciadorCurso.getAula("sex",h)}</span>
+                        </h:column>
+
+                    </h:dataTable>
+                </h:form>
+            </div>
+        </f:view>
+    </h:body>
+</html>
+

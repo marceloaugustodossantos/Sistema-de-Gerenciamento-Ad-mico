@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>GA - Gerenciamento acadêmico</title>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <script src="js/jquery.js" type="text/javascript"></script>
+        <script src="js/bootstrap.js" type="text/javascript"></script>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
+    </h:head>
+    <h:body>
+        <div class="navbar navbar-static-top bg-success">
+            <h1>Gerenciamento Acadêmico IFPB</h1>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <h:form style="float: right">
+                    <h:commandLink class="btn btn-default" value="Sair" action="index.xhtml"/>
+                </h:form>
+            </div><!-- /.navbar-collapse -->
+        </div>    
+
+        <div class="container">
+            <div class="row">
+                <h3 class="">Bem vindo #{gerenciadorProfessorServicos.professor.nome}!</h3>
+                <br/>
+                <br/>
+                <br/>
+                <div class="col-xs-4 col-md-3">
+                    <a href="cadastrarmateriais.xhtml" class="thumbnail">
+                        <img class="icone" src="imagens/materialaula.png"></img>
+                        <div class="caption text-center text-capitalize">
+                            <h4>Materiais de Aula</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-4 col-md-3">
+                    <a href="cadastroAvaliacao.xhtml" class="thumbnail">
+                        <img class="icone" src="imagens/avaliacoes.png"></img>
+                        <div class="caption text-center text-capitalize">
+                            <h4>Avaliações</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-4 col-md-3">
+                    <a href="cadastrarAtividades.xhtml" class="thumbnail">
+                        <img class="icone" src="imagens/atividades.png"></img>                    
+                        <div class="caption text-center text-capitalize">
+                            <h4>Atividades</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-4 col-md-3">
+                    <a href="professorduvidas.xhtml" class="thumbnail">
+                        <img class="icone" src="imagens/duvidas.png"></img>                    
+                        <div class="caption text-center text-capitalize">
+                            <h4>Dúvidas</h4>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </h:body>
+</html>
+
+
+

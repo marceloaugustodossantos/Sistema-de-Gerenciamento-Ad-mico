@@ -1,0 +1,16 @@
+ga-core/target
+GA-Desktop/target
+GA-Entidades/target
+GA-Web/target
+GA-Entidades/src/main/setup/*
+GA-Web/src/main/setup/*
+nb-configuration.xml
+ga-core/nb-configuration.xml
+GA-Desktop/nb-configuration.xml
+GA-Entidades/nb-configuration.xml
+GA-Web/nb-configuration.xml
+nb-configuration.xml~
+ga-core/nb-configuration.xml~
+GA-Desktop/nb-configuration.xml~
+GA-Entidades/nb-configuration.xml~
+GA-Web/nb-configuration.xml~

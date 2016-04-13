@@ -1,0 +1,86 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 07/11/2015, 13:23:32
+    Author     : Marcelo Augusto
+*/
+
+form label{
+    width: 200px;
+}
+
+#conteudoProfessores{
+    position: absolute;
+    top: 30px;
+    left: 10%;
+    height: auto;
+    width: 80%;
+}
+
+.thumbnail{    
+    height: 160px !important;
+    opacity: 0.8;    
+    background: wheat;
+    transition: 0.3s all;
+    transform: scale(0.9);        
+}
+
+.thumbnail:hover{
+    opacity: 1;
+    transform: rotate(3deg) scale(1.0);
+    box-shadow: 2px 2px 5px #999;
+    background: #39cc78;    
+    border: 0;
+}
+
+.icone{
+    height:100px !important;
+}
+
+.conteudo{
+    position: absolute;
+    top: 30px;
+    left: 10%;
+    height: auto;
+    width: 80%;
+}
+
+.titulo{
+    position: relative; 
+    text-align: center
+}
+
+
+#formDuvidas{
+    position: relative;
+    width: 70%;
+    
+}
+#listaDuvidasAluno{
+    position: relative;
+    width: 70%;
+    left: 15%;
+}
+
+
+
+
+/*style login*/
+#formLogin{
+    position: relative;
+    top: 50px;
+    left: 25%;
+    height: 50%;
+    width: 50%;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: #c6eac6;
+}
+#formLg{
+    position: relative;
+    left: 15%;
+}
+
